@@ -1,60 +1,36 @@
+console.log("extension content script active on:", location.href);
 
 (async function () {
 
   const url = window.location.href;
 
-  if (url.includes("moodle.bfh.ch")) {
+  if (url.includes("moodle.bfh.ch") || url.includes("https://wayf.switch.ch/")) {
     chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
       if (loginType) {
-        selectOrgByUrl(loginType);
+        document.querySelector(`.idd_listItem[savedvalue="${CSS.escape(loginType.url)}"]`)?.click();
       }
     });
   }
 
-  if (url.includes("login.eduid.ch")) {
-
-
-    const passwordField = document.querySelector("#password");
-
-    if (passwordField != null) {
-      try {
-        const passField = document.querySelector("#password");
-        passField.setAttribute("autocomplete", "current-password");
-
-        document.addEventListener('click', (event) => {
-          const proceed = document.querySelector("#button-proceed");
-          proceed.click();
-        });
+  if (url.includes("ilias.unibe.ch")){
+    chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
+      if (loginType) {
+        const select = document.getElementById("user_idp");
+        select.value = loginType.url;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
       }
-      catch {
-        //Do nothing 😎
-      }
-    }
-    else {
-      const userField = document.querySelector("#username");
-      userField.setAttribute("autocomplete", "username");
-      userField.click();
-
-      userField.addEventListener('input', function (event) {
-        try {
-          const submit = document.querySelector("#button-submit");
-          submit.click();
-
-        }
-        catch {
-          //Do nothing 😎
-        }
-
-        const proceed = document.querySelector("#button-proceed");
-        proceed.click();
-
-        proceed.click();
-      });
-    }
+    });
   }
+
+  if (url.includes("moodle-app2.let.ethz.ch")) {
+
+    chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
+      if (loginType) {
+        const select = document.getElementById("idp");
+        select.value = loginType.url;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+    });
+  }
+
 })();
-
-function selectOrgByUrl(item) {
-  document.querySelector(`.idd_listItem[savedvalue="${CSS.escape(item.url)}"]`)?.click();
-}
-

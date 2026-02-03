@@ -9,14 +9,13 @@
   },
   "host_permissions": [
     "https://moodle.bfh.ch/*",
-    "https://login.eduid.ch/*"
+    "https://login.eduid.ch/*",
+    "https://ilias.unibe.ch/*",
+    "https://wayf.switch.ch/"
   ],
   "content_scripts": [
     {
-      "matches": [
-        "https://moodle.bfh.ch/*",
-        "https://login.eduid.ch/*"
-      ],
+      "matches": ["<all_urls>"],
       "js": ["content.js"],
       "run_at": "document_idle",
       "all_frames": true
