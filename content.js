@@ -4,18 +4,11 @@
   const url = window.location.href;
 
   if (url.includes("moodle.bfh.ch")) {
-    // Step 1: Handle pre-login page
-
-    if (url.includes("moodle.bfh.ch/local/bfh_dual_login/index.php")) {
-      const checkbox = document.querySelector("#wayf_remember_checkbox");
-      checkbox.click();
-    }
-
-    const preSubmit = document.querySelector("#wayf_submit_button");
-    if (preSubmit) {
-      preSubmit.click();
-      return; // Exit and wait for next page to load
-    }
+    chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
+      if (loginType) {
+        selectOrgByUrl(loginType);
+      }
+    });
   }
 
   if (url.includes("login.eduid.ch")) {
@@ -60,3 +53,8 @@
     }
   }
 })();
+
+function selectOrgByUrl(item) {
+  document.querySelector(`.idd_listItem[savedvalue="${CSS.escape(item.url)}"]`)?.click();
+}
+

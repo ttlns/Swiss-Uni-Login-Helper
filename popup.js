@@ -14,7 +14,7 @@
 })();
 
 function createIdpDropdown(mountEl, providers, onSelect) {
-  const placeholder = "choose your organization…";
+  const placeholder = "select your organization";
   const root = document.createElement("div");
   root.className = "idpdd";
   root.innerHTML = `
@@ -46,14 +46,23 @@ function createIdpDropdown(mountEl, providers, onSelect) {
   const listEl = root.querySelector(".idpdd-list");
 
   let isOpen = false;
+
   let selected = null;
+
+  //Get Selected option
+  chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
+    if (loginType) {
+      setSelected(loginType);
+    }
+  });
+
   let activeIndex = -1;
   let filtered = providers.slice();
 
   function setSelected(item) {
     selected = item;
     titleEl.textContent = item?.name ?? placeholder;
-    // subEl.textContent = item?.url ?? "";
+  
     if (item?.icon_base64) {
       rightIconEl.src = item.icon_base64;
       rightIconEl.style.display = "";
@@ -72,7 +81,7 @@ function createIdpDropdown(mountEl, providers, onSelect) {
     filtered = providers.slice();
     activeIndex = filtered.length ? 0 : -1;
     renderList();
-    queueMicrotask(() => searchInput.focus());   
+    //queueMicrotask(() => searchInput.focus());   
     toggleCaretRotation();
   }
 
@@ -85,7 +94,7 @@ function createIdpDropdown(mountEl, providers, onSelect) {
     toggleCaretRotation();
   }
 
-  function toggleCaretRotation(){
+  function toggleCaretRotation() {
     //Rotate Caret
     const caret = document.querySelector(".idpdd-caret");
     caret.classList.toggle("rotated");
@@ -156,6 +165,9 @@ function createIdpDropdown(mountEl, providers, onSelect) {
         if (icon && item.icon_base64) icon.src = item.icon_base64;
 
         row.addEventListener("click", () => {
+          chrome.storage.sync.set({
+            loginType: item
+          });
           setSelected(item);
           close();
           //btn.focus();

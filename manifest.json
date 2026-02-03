@@ -1,10 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "idp chooser",
+  "name": "idp helper",
   "version": "1.0.0",
+  "permissions": ["storage"],
   "action": {
-    "default_title": "idp chooser",
+    "default_title": "idp helper",
     "default_popup": "popup.html"
   },
-  "permissions": ["tabs"]
+  "host_permissions": [
+    "https://moodle.bfh.ch/*",
+    "https://login.eduid.ch/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://moodle.bfh.ch/*",
+        "https://login.eduid.ch/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
 }
