@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "idp chooser",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "idp chooser",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs"]
+}
