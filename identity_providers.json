@@ -107,6 +107,13 @@
     },
     {
       "category": "Fachhochschulen",
+      "name": "Fachhochschulen",
+      "url": "",
+      "search_data": "",
+      "icon_base64": ""
+    },
+    {
+      "category": "Fachhochschulen",
       "name": "BFH - Berner Fachhochschule",
       "url": "https://aai-logon.bfh.ch/idp/shibboleth",
       "search_data": "bfh.ch BFH - Berner Fachhochschule BFH - Berner Fachhochschule https://aai-logon.bfh.ch/idp/shibboleth bfh.ch BFH - Haute école spécialisée bernoise bfh.ch",
@@ -188,6 +195,13 @@
       "url": "https://aai-logon.zhdk.ch/idp/shibboleth",
       "search_data": "zhdk.ch ZHdK - Zürcher Hochschule der Künste ZHdK - Zürcher Hochschule der Künste https://aai-logon.zhdk.ch/idp/shibboleth zhdk.ch zhdk.ch",
       "icon_base64": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+Cjx0aXRsZT5sb2dvLyBwYXJ0bmVyLyB6aGRrX2xvZ288L3RpdGxlPgo8cG9seWdvbiBwb2ludHM9IjEuMywxNS41IDE0LjcsMTUuNSAxNC43LDExLjYgNy4zLDExLjYgMTQuNCwzLjkgMTQuNCwwLjUgMS43LDAuNSAxLjcsNC40IDguMyw0LjQgMS4zLDExLjkgIi8+Cjwvc3ZnPgo="
+    },
+    {
+      "category": "Pädagogische Hochschulen",
+      "name": "Pädagogische Hochschulen",
+      "url": "",
+      "search_data": "",
+      "icon_base64": ""
     },
     {
       "category": "Pädagogische Hochschulen",
@@ -303,6 +317,13 @@
     },
     {
       "category": "Universitätsspitäler",
+      "name": "Universitätsspitäler",
+      "url": "",
+      "search_data": "",
+      "icon_base64": ""
+    },
+    {
+      "category": "Universitätsspitäler",
       "name": "CHUV - Centre hospitalier universitaire vaudois",
       "url": "https://idp.chuv.ch/idp/shibboleth",
       "search_data": "chuv.ch CHUV - Centre hospitalier universitaire vaudois https://idp.chuv.ch/idp/shibboleth chuv.ch unisante.ch CHUV - Centre hospitalier universitaire vaudois chuv.ch unisante.ch",
@@ -342,6 +363,13 @@
       "url": "https://aai-logon.unispital.ch/idp/shibboleth",
       "search_data": "unispital.ch Universitätsspital Zürich Universitätsspital Zürich https://aai-logon.unispital.ch/idp/shibboleth usz.ch usz.ch",
       "icon_base64": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6IzAwNUVBODt9Cgkuc3Qxe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+Cjx0aXRsZT51c3otbG9nbzwvdGl0bGU+CjxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgo8cmVjdCBjbGFzcz0ic3QwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiLz4KPGcgaWQ9Ikdyb3VwLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDc4LCAwLjM4NjU1NykiPgoJPHBhdGggaWQ9IkZpbGwtMSIgY2xhc3M9InN0MSIgZD0iTTMuOCw0LjloMS41djMuMWMwLDEuNC0xLDIuNC0yLjUsMi40Yy0xLjUsMC0yLjUtMC45LTIuNS0yLjRWNC45SDJ2M0MyLDguNiwyLjMsOSwyLjksOSAgIHMwLjktMC40LDAuOS0xLjFWNC45eiIvPgoJPHBvbHlnb24gaWQ9IkZpbGwtMyIgY2xhc3M9InN0MSIgcG9pbnRzPSIxMS4xLDQuOSAxNS41LDQuOSAxNS41LDUuMyAxMy4yLDguOSAxNS41LDguOSAxNS41LDEwLjIgMTEsMTAuMiAxMSw5LjggMTMuMiw2LjIgICAgMTEuMSw2LjIgICIvPgoJPHBhdGggaWQ9IkZpbGwtNSIgY2xhc3M9InN0MSIgZD0iTTUuOSw5LjVsMS0wLjlDNy4zLDksNy44LDkuMiw4LjIsOS4yYzAuMywwLDAuNywwLDAuOC0wLjRjMC0wLjMtMC40LTAuNS0xLTAuNiAgIEM3LDgsNi4xLDcuNiw2LjEsNi40YzAtMS4xLDEtMS43LDIuMi0xLjdjMC43LDAsMS41LDAuMiwyLjEsMC45bC0xLDAuOUM5LjEsNi4yLDguNyw2LDguMyw2QzgsNiw3LjYsNi4xLDcuNiw2LjQgICBjMCwwLjMsMC4yLDAuNCwwLjksMC42YzAuOSwwLjIsMiwwLjcsMiwxLjhjMCwxLjItMSwxLjgtMi4zLDEuOEM3LjUsMTAuNSw2LjUsMTAuMyw1LjksOS41Ii8+CjwvZz4KPC9zdmc+Cg=="
+    },
+    {
+      "category": "Forschungseinrichtungen",
+      "name": "Forschungseinrichtungen",
+      "url": "",
+      "search_data": "",
+      "icon_base64": ""
     },
     {
       "category": "Forschungseinrichtungen",
@@ -401,6 +429,13 @@
     },
     {
       "category": "Virtuelle Home Organisation und Bibliotheken",
+      "name": "Virtuelle Home Organisation und Bibliotheken",
+      "url": "",
+      "search_data": "",
+      "icon_base64": ""
+    },
+    {
+      "category": "Virtuelle Home Organisation und Bibliotheken",
       "name": "VHO - Virtual Home Organization",
       "url": "https://aai-logon.vho-switchaai.ch/idp/shibboleth",
       "search_data": "vho-switchaai.ch VHO - Virtual Home Organization careumhttps://aai-logon.vho-switchaai.ch/idp/shibboleth vho-switchaai.ch vho-switchaai.ch",
@@ -412,6 +447,13 @@
       "url": "https://aai-logon.zhbluzern.ch/idp/shibboleth",
       "search_data": "zhbluzern.ch Zentral- und Hochschulbibliothek Luzern Zentral- und Hochschulbibliothek Luzern https://aai-logon.zhbluzern.ch/idp/shibboleth zhbluzern.ch zhbluzern.ch",
       "icon_base64": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzFBQUFBMTt9Cgkuc3Qxe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+Cjxwb2x5bGluZSBjbGFzcz0ic3QwIiBwb2ludHM9IjQuNCwwIDAsMCAwLDE2IDE2LDE2IDE2LDAgNC40LDAgIi8+CjxnPgoJPHBhdGggY2xhc3M9InN0MSIgZD0iTTguMSw2LjNjLTAuNSwwLTEuMSwwLjMtMS40LDAuOGgwVjQuNkg1LjN2Ni43aDEuM1Y4LjdjMC0xLDAuMy0xLjQsMS0xLjRjMC42LDAsMC45LDAuNCwwLjksMS4ydjIuOGgxLjN2LTMgICBDOS45LDcuMSw5LjYsNi4zLDguMSw2LjN6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTMuOCw2LjNjLTAuNiwwLTEuMiwwLjItMS41LDAuN2gwVjQuNmgtMS4zdjYuN2gxLjN2LTAuNmgwYzAuMywwLjUsMC45LDAuOCwxLjYsMC44YzEsMCwyLTAuOCwyLTIuNiAgIEMxNS45LDcuMSwxNC44LDYuMywxMy44LDYuM3ogTTEzLjQsMTAuNGMtMC44LDAtMS4xLTAuNy0xLjEtMS42YzAtMC44LDAuMy0xLjYsMS4xLTEuNmMwLjgsMCwxLjEsMC43LDEuMSwxLjYgICBDMTQuNSw5LjcsMTQuMiwxMC40LDEzLjQsMTAuNHoiLz4KCTxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iNC40LDcuNCA0LjQsNi40IDAuMyw2LjQgMC4zLDcuNCAyLjcsNy40IDAuMSwxMC4zIDAuMSwxMS4zIDQuNiwxMS4zIDQuNiwxMC4zIDEuOSwxMC4zICAiLz4KPC9nPgo8L3N2Zz4K"
+    },
+    {
+      "category": "Andere",
+      "name": "Andere",
+      "url": "",
+      "search_data": "",
+      "icon_base64": ""
     },
     {
       "category": "Andere",

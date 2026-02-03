@@ -1,101 +1,243 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>idp chooser</title>
-    <style>
-      body {
-        min-height: 150px;
-        margin: 10;
-        padding: 14px;
-        width: 420px;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        background: #fff;
-        color: #111;
-      }
-      .idpdd { position: relative; width: 100%; }
-      .idpdd * { box-sizing: border-box; }
 
-      .idpdd-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid #cfcfcf;
-        border-radius: 10px;
-        padding: 10px 12px;
-        background: #fff;
-        cursor: pointer;
-        gap: 12px;
-      }
-      .idpdd-btn:focus { outline: 2px solid #7aa7ff; outline-offset: 2px; }
-      .idpdd-left { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-      .idpdd-title { font-size: 14px; color: #111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .idpdd-sub { font-size: 12px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>idp chooser</title>
+  <style>
+    body {
+      min-height: 150px;
+      margin: 10;
+      padding: 14px;
+      width: 420px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+    }
 
-      .idpdd-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-      .idpdd-icon { width: 18px; height: 18px; border-radius: 4px; }
-      .idpdd-caret { width: 10px; height: 10px; border-right: 2px solid #666; border-bottom: 2px solid #666; transform: rotate(45deg); margin-left: 2px; }
+    .idpdd {
+      position: relative;
+      width: 100%;
+    }
 
-      .idpdd-panel {
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        width: 100%;
-        border: 1px solid #cfcfcf;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        overflow: hidden;
-        z-index: 1000;
-        display: none;
-      }
-      .idpdd-panel.open { display: block; }
+    .idpdd * {
+      box-sizing: border-box;
+    }
 
-      .idpdd-search { padding: 10px; border-bottom: 1px solid #eee; }
-      .idpdd-search input {
-        width: 100%;
-        padding: 10px 12px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        font-size: 14px;
-      }
+    .idpdd-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #cfcfcf;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      cursor: pointer;
+      gap: 12px;
+    }
 
-      .idpdd-list { max-height: 320px; overflow: auto; }
-      .idpdd-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 12px;
-        cursor: pointer;
-        gap: 12px;
-      }
-      .idpdd-item:hover, .idpdd-item[aria-selected="true"] { background: #f6f8ff; }
-      .idpdd-item-left { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-      .idpdd-item-name { font-size: 14px; color: #111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .idpdd-item-cat { font-size: 12px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .idpdd-btn:focus {
+      outline: 2px solid #7aa7ff;
+      outline-offset: 2px;
+    }
 
-      .row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; }
-      .hint { font-size: 12px; color: #666; margin-bottom: 10px; line-height: 1.35; }
-      .btn {
-        border: 1px solid #cfcfcf;
-        background: #fff;
-        border-radius: 10px;
-        padding: 10px 12px;
-        cursor: pointer;
-      }
-      .btn:hover { background: #f6f6f6; }
-    </style>
-  </head>
+    .idpdd-left {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-  <body>
+    .idpdd-title {
+      font-size: 14px;
+      height: 18px;
+      margin-top: 2px;
+      color: #111;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-    <div class="hint">
-      Choose an identity provider to Auto-Login
-    </div>
-    <div id="mount"></div>
+    .idpdd-sub {
+      font-size: 12px;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-    <script src="popup.js"></script>
-  </body>
+    .idpdd-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .idpdd-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+    }
+
+    .idpdd-caret {
+      margin-bottom: 4px; 
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #666;
+      border-bottom: 2px solid #666;
+      transform: rotate(45deg);
+      margin-left: 2px;
+      transition: transform 0.1s ease;
+    }
+
+    .idpdd-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      width: 100%;
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      z-index: 1000;
+      display: none;
+    }
+
+    .idpdd-panel.open {
+      display: block;
+    }
+
+    .idpdd-search {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .idpdd-search input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .idpdd-list {
+      max-height: 320px;
+      overflow: auto;
+    }
+
+    .idpdd-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      cursor: pointer;
+      gap: 12px;
+    }
+
+    .idpdd-desc {
+      display: flex;
+      align-items: left;
+      justify-content: space-between;
+      padding: 0;
+      gap: 0px;
+    }
+
+    .idpdd-item:hover,
+    .idpdd-item[aria-selected="true"] {
+      background: #f6f8ff;
+    }
+
+    .idpdd-item-left {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .idpdd-item-desc {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      pointer-events: none;
+    }
+
+    .idpdd-item-name {
+      font-size: 14px;
+      color: #111;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .idpdd-item-cat {
+      margin-left: 8px;
+      font-size: 12px;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .btn {
+      border: 1px solid #cfcfcf;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #f6f6f6;
+    }
+
+    hr {
+      margin: 0;
+      margin-left: 4px;
+      padding: 0;
+      opacity: 0.2;
+    }
+
+    .rotated {
+      transform: rotate(225deg);
+      transition: transform 0.1s ease;
+      margin-bottom: 0px;
+      margin-top: 6px; 
+    }
+
+    .caret-wrap {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hint">
+    Choose an identity provider to Auto-Login
+  </div>
+  <div id="mount"></div>
+
+  <script src="popup.js"></script>
+</body>
+
 </html>

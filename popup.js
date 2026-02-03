@@ -24,13 +24,15 @@ function createIdpDropdown(mountEl, providers, onSelect) {
       </span>
       <span class="idpdd-right">
         <img class="idpdd-icon" alt="" style="display:none;" />
+        <div class="caret-wrap">
         <span class="idpdd-caret" aria-hidden="true"></span>
+        </div>
       </span>
     </button>
 
     <div class="idpdd-panel" role="dialog" aria-label="identity provider chooser">
       <div class="idpdd-search">
-        <input type="text" placeholder="search…" aria-label="search identity providers" />
+        <input type="text" placeholder="search organization" aria-label="search identity providers" />
       </div>
       <div class="idpdd-list" role="listbox" tabindex="-1"></div>
     </div>
@@ -72,7 +74,8 @@ function createIdpDropdown(mountEl, providers, onSelect) {
     filtered = providers.slice();
     activeIndex = filtered.length ? 0 : -1;
     renderList();
-    queueMicrotask(() => searchInput.focus());
+    queueMicrotask(() => searchInput.focus());   
+    toggleCaretRotation();
   }
 
   function close() {
@@ -81,6 +84,13 @@ function createIdpDropdown(mountEl, providers, onSelect) {
     panel.classList.remove("open");
     btn.setAttribute("aria-expanded", "false");
     activeIndex = -1;
+    toggleCaretRotation();
+  }
+
+  function toggleCaretRotation(){
+    //Rotate Caret
+    const caret = document.querySelector(".idpdd-caret");
+    caret.classList.toggle("rotated");
   }
 
   function applyFilter(q) {
@@ -116,17 +126,44 @@ function createIdpDropdown(mountEl, providers, onSelect) {
 
     filtered.forEach((item, idx) => {
       const row = document.createElement("div");
-      row.className = "idpdd-item";
       row.setAttribute("role", "option");
       row.setAttribute("data-index", String(idx));
       row.setAttribute("aria-selected", selected?.url === item.url ? "true" : "false");
 
-      row.innerHTML = `
+
+      //If Category
+      if (item.url == "") {
+        listEl.appendChild(document.createElement("hr"));
+        row.innerHTML = `
+        <span class="idpdd-item-desc">
+          <span class="idpdd-item-cat">hey</span>
+        </span>
+      `;
+        row.querySelector(".idpdd-item-cat").textContent = item.category ?? "";
+        row.className = "idpdd-desc";
+
+      } //If Service Provider
+      else {
+        row.innerHTML = `
         <span class="idpdd-item-left">
           <span class="idpdd-item-name"></span>
         </span>
         ${item.icon_base64 ? `<img class="idpdd-icon" alt="" />` : `<span style="width:18px;height:18px;"></span>`}
       `;
+
+        row.querySelector(".idpdd-item-name").textContent = item.name ?? "";
+        row.className = "idpdd-item";
+
+        const icon = row.querySelector("img.idpdd-icon");
+        if (icon && item.icon_base64) icon.src = item.icon_base64;
+
+        row.addEventListener("click", () => {
+          setSelected(item);
+          close();
+          //btn.focus();
+          //if (typeof onSelect === "function") onSelect(item);
+        });
+      }
 
       // Removed Category in current code
       // row.innerHTML = `
@@ -136,19 +173,6 @@ function createIdpDropdown(mountEl, providers, onSelect) {
       //   </span>
       //   ${item.icon_base64 ? `<img class="idpdd-icon" alt="" />` : `<span style="width:18px;height:18px;"></span>`}
       // `;
-
-      row.querySelector(".idpdd-item-name").textContent = item.name ?? "";
-      // row.querySelector(".idpdd-item-cat").textContent = item.category ?? "";
-
-      const icon = row.querySelector("img.idpdd-icon");
-      if (icon && item.icon_base64) icon.src = item.icon_base64;
-
-      row.addEventListener("click", () => {
-        setSelected(item);
-        close();
-        //btn.focus();
-        //if (typeof onSelect === "function") onSelect(item);
-      });
 
       listEl.appendChild(row);
 
