@@ -20,13 +20,11 @@ function createIdpDropdown(mountEl, providers, onSelect) {
   root.innerHTML = `
     <button type="button" class="idpdd-btn" aria-haspopup="listbox" aria-expanded="false">
       <span class="idpdd-left">
+        <img class="idpdd-icon" alt="" style="display:none;" />
         <span class="idpdd-title"></span>
       </span>
       <span class="idpdd-right">
-        <img class="idpdd-icon" alt="" style="display:none;" />
-        <div class="caret-wrap">
         <span class="idpdd-caret" aria-hidden="true"></span>
-        </div>
       </span>
     </button>
 
@@ -145,10 +143,10 @@ function createIdpDropdown(mountEl, providers, onSelect) {
       } //If Service Provider
       else {
         row.innerHTML = `
+        ${item.icon_base64 ? `<img class="idpdd-icon" alt="" />` : `<span style="width:18px;height:18px;"></span>`}
         <span class="idpdd-item-left">
           <span class="idpdd-item-name"></span>
         </span>
-        ${item.icon_base64 ? `<img class="idpdd-icon" alt="" />` : `<span style="width:18px;height:18px;"></span>`}
       `;
 
         row.querySelector(".idpdd-item-name").textContent = item.name ?? "";

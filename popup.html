@@ -43,21 +43,16 @@
       outline-offset: 2px;
     }
 
-    .idpdd-left {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
     .idpdd-title {
       font-size: 14px;
       height: 18px;
       margin-top: 2px;
+      margin-right: 0;
       color: #111;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 340px;
     }
 
     .idpdd-sub {
@@ -69,10 +64,19 @@
     }
 
     .idpdd-right {
+      margin: 0;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0;
       flex-shrink: 0;
+    }
+
+    .idpdd-left {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 10px;
     }
 
     .idpdd-icon {
@@ -88,7 +92,7 @@
       border-right: 2px solid #666;
       border-bottom: 2px solid #666;
       transform: rotate(45deg);
-      margin-left: 2px;
+      /* margin-left: 2px; */
       transition: transform 0.1s ease;
     }
 
@@ -130,8 +134,7 @@
 
     .idpdd-item {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      align-items: left;
       padding: 10px 12px;
       cursor: pointer;
       gap: 12px;
@@ -221,11 +224,6 @@
       transition: transform 0.1s ease;
       margin-bottom: 0px;
       margin-top: 6px; 
-    }
-
-    .caret-wrap {
-      display: flex;
-      align-items: center;
     }
   </style>
 </head>
