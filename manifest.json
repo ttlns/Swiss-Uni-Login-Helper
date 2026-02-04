@@ -11,7 +11,8 @@
     "https://moodle.bfh.ch/*",
     "https://login.eduid.ch/*",
     "https://ilias.unibe.ch/*",
-    "https://wayf.switch.ch/"
+    "https://wayf.switch.ch/",
+    "https://moodle.fhgr.ch/"
   ],
   "content_scripts": [
     {
