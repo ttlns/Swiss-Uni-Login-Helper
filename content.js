@@ -1,6 +1,6 @@
-console.log("extension content script active on:", location.href);
-
 (async function () {
+
+
 
   const url = window.location.href;
 
@@ -9,7 +9,11 @@ console.log("extension content script active on:", location.href);
       if (loginType) {
         document.querySelector(`.idd_listItem[savedvalue="${CSS.escape(loginType.url)}"]`)?.click();
 
-        document.getElementById("wayf_submit_button").click();
+        chrome.storage.sync.get(["autoForward"], (result) => {
+          if (result.autoForward) { //Autoforward on
+            document.getElementById("wayf_submit_button").click();
+          }
+        });
       }
     });
   }
@@ -21,7 +25,11 @@ console.log("extension content script active on:", location.href);
         select.value = loginType.url;
         select.dispatchEvent(new Event("change", { bubbles: true }));
 
-        document.getElementById("wayf_submit_button").click();
+        chrome.storage.sync.get(["autoForward"], (result) => {
+          if (result.autoForward) { //Autoforward on
+            document.getElementById("wayf_submit_button").click();
+          }
+        });
       }
     });
   }
@@ -34,8 +42,12 @@ console.log("extension content script active on:", location.href);
         select.value = loginType.url;
         select.dispatchEvent(new Event("change", { bubbles: true }));
 
-        const btn = document.querySelector('button[type="submit"].btn.btn-primary');
-        btn?.closest("form")?.requestSubmit(btn);
+        chrome.storage.sync.get(["autoForward"], (result) => {
+          if (result.autoForward) { //Autoforward on
+            const btn = document.querySelector('button[type="submit"].btn.btn-primary');
+            btn?.closest("form")?.requestSubmit(btn);
+          }
+        });
       }
     });
   }

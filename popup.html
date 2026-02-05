@@ -10,7 +10,7 @@
       min-height: 150px;
       margin: 10;
       padding: 14px;
-      width: 420px;
+      width: 340px;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #111;
     }
@@ -34,7 +34,7 @@
       padding: 10px 12px;
       background: #fff;
       cursor: pointer;
-      gap: 12px;
+      gap: 10px;
       transition: box-shadow 0.45s ease;
     }
 
@@ -44,7 +44,7 @@
     }
 
     .idpdd-title {
-      font-size: 14px;
+      font-size: 13px;
       height: 18px;
       margin-top: 2px;
       margin-right: 0;
@@ -52,7 +52,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 340px;
+      max-width: 260px;
     }
 
     .idpdd-sub {
@@ -87,8 +87,8 @@
 
     .idpdd-caret {
       margin-bottom: 4px;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-right: 2px solid #666;
       border-bottom: 2px solid #666;
       transform: rotate(45deg);
@@ -108,6 +108,7 @@
       overflow: hidden;
       z-index: 1000;
       display: none;
+      height: 300px;
     }
 
     .idpdd-panel.open {
@@ -125,7 +126,7 @@
       padding: 10px 12px;
       border: 1px solid #ddd;
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .idpdd-search input:focus,
@@ -177,7 +178,7 @@
     }
 
     .idpdd-item-name {
-      font-size: 14px;
+      font-size: 13px;
       color: #111;
       white-space: nowrap;
       overflow: hidden;
@@ -231,8 +232,81 @@
       transform: rotate(225deg);
       transition: transform 0.1s ease;
       margin-bottom: 0px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
+
+    body {
+      background-color: white;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+
+      padding: 12px 0;
+    }
+
+    .setting-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .setting-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .setting-desc {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* toggle switch */
+    .toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #ccc;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+
+    .toggle input:checked + .slider {
+      background: #4caf50;
+    }
+
+    .toggle input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
   </style>
 </head>
 
@@ -244,6 +318,19 @@
     </div>
     <div id="mount"></div>
 
+    <div class="setting-row">
+  <div class="setting-text">
+    <div class="setting-title">Auto-Forward</div>
+    <div class="setting-desc">
+      automatically forward after organization is selected
+    </div>
+  </div>
+
+  <label class="toggle">
+    <input type="checkbox" />
+    <span class="slider"></span>
+  </label>
+</div>
     <script src="popup.js"></script>
   </div>
 </body>

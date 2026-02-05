@@ -62,7 +62,7 @@ function createIdpDropdown(mountEl, providers, onSelect) {
   function setSelected(item) {
     selected = item;
     titleEl.textContent = item?.name ?? placeholder;
-  
+
     if (item?.icon_base64) {
       rightIconEl.src = item.icon_base64;
       rightIconEl.style.display = "";
@@ -143,7 +143,7 @@ function createIdpDropdown(mountEl, providers, onSelect) {
         listEl.appendChild(document.createElement("hr"));
         row.innerHTML = `
         <span class="idpdd-item-desc">
-          <span class="idpdd-item-cat">hey</span>
+          <span class="idpdd-item-cat"></span>
         </span>
       `;
         row.querySelector(".idpdd-item-cat").textContent = item.category ?? "";
@@ -170,19 +170,8 @@ function createIdpDropdown(mountEl, providers, onSelect) {
           });
           setSelected(item);
           close();
-          //btn.focus();
-          //if (typeof onSelect === "function") onSelect(item);
         });
       }
-
-      // Removed Category in current code
-      // row.innerHTML = `
-      //   <span class="idpdd-item-left">
-      //     <span class="idpdd-item-name"></span>
-      //     <span class="idpdd-item-cat"></span>
-      //   </span>
-      //   ${item.icon_base64 ? `<img class="idpdd-icon" alt="" />` : `<span style="width:18px;height:18px;"></span>`}
-      // `;
 
       listEl.appendChild(row);
 
@@ -248,4 +237,18 @@ function createIdpDropdown(mountEl, providers, onSelect) {
   document.addEventListener("mousedown", (e) => {
     if (!root.contains(e.target)) close();
   });
+
 }
+
+
+const toggle = document.querySelector(".toggle input");
+
+// restore state on open
+chrome.storage.sync.get(["autoForward"], (result) => {
+  toggle.checked = result.autoForward ?? false;
+});
+
+// save state on change
+toggle.addEventListener("change", () => {
+  chrome.storage.sync.set({ autoForward: toggle.checked });
+});
