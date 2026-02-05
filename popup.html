@@ -300,18 +300,30 @@
     }
 
     .toggle input:checked + .slider {
-      background: #4caf50;
+      background: #227725;
     }
 
     .toggle input:checked + .slider::before {
       transform: translateX(20px);
     }
 
+    .popup {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms ease, transform 300ms ease;
+  will-change: opacity, transform;
+}
+
+/* animate to visible */
+.popup.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 
 <body>
-  <div class="panel">
+  <div class="panel popup">
 
     <div class="hint">
       Choose an organization for the Auto-Login

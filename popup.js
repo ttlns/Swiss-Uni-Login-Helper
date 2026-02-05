@@ -252,3 +252,9 @@ chrome.storage.sync.get(["autoForward"], (result) => {
 toggle.addEventListener("change", () => {
   chrome.storage.sync.set({ autoForward: toggle.checked });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.querySelector(".popup");
+  // next frame helps ensure the transition triggers reliably
+  requestAnimationFrame(() => popup.classList.add("is-open"));
+});
