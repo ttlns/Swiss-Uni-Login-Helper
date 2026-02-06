@@ -1,0 +1,65 @@
+Privacy Policy – Swiss Uni Login Helper
+
+Your privacy is important to us. This Privacy Policy explains what data the Chrome extension Swiss Uni Login Helper processes and for what purpose.
+
+1. General Information
+
+The extension Swiss Uni Login Helper is designed solely to speed up the login process for Swiss universities using Switch edu-ID.
+The extension operates entirely locally within the user’s browser.
+
+2. What data is processed?
+
+The extension stores only the following information:
+
+the university or organization selected by the user
+
+a setting indicating whether automatic forwarding (“auto-forward”) is enabled
+
+This data is required to automate login steps and prevent users from repeatedly selecting their institution.
+
+3. What data is not collected?
+
+The extension does not collect, store, or transmit any of the following data:
+
+personally identifiable information (e.g. name, email address, postal address)
+
+authentication data (e.g. passwords, login credentials, PINs)
+
+health-related information
+
+financial or payment information
+
+personal communications (emails, messages, chats)
+
+location data (e.g. IP address, GPS location)
+
+browsing history or web activity logs
+
+user interaction data (e.g. clicks, mouse movement, scrolling, keystrokes)
+
+website content (e.g. text, images, videos, audio)
+
+4. Use of permissions
+
+Storage permission is used to save the selected organization and user preferences locally in the browser.
+
+Access to specific websites is required to detect Switch edu-ID and university login pages and to automate organization selection and navigation.
+
+The extension only runs on pages that are necessary for the authentication process.
+
+5. Data transmission
+
+No data is transmitted to third parties.
+All stored information remains locally on the user’s device.
+
+6. Tracking and analytics
+
+The extension does not use tracking, analytics, or advertising services.
+
+7. Changes to this Privacy Policy
+
+This Privacy Policy may be updated if the functionality of the extension changes. The latest version will always be available in the Chrome Web Store listing.
+
+8. Contact
+
+If you have any questions about this Privacy Policy or the extension, please contact the developer using the contact information provided in the Chrome Web Store.
