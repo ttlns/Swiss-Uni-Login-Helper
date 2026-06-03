@@ -34,7 +34,7 @@
     });
   }
 
-  if (url.includes("moodle-app2.let.ethz.ch")) {
+  if (url.includes("moodle-app2.let.ethz.ch") || url.includes("moodle-app6.let.ethz.ch")) {
 
     chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
       if (loginType) {
