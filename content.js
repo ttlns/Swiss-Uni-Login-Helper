@@ -39,15 +39,17 @@
     chrome.storage.sync.get({ loginType: null }, ({ loginType }) => {
       if (loginType) {
         const select = document.getElementById("idp");
-        select.value = loginType.url;
-        select.dispatchEvent(new Event("change", { bubbles: true }));
+        if(select != null){ // idp element exists
+          select.value = loginType.url;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
 
-        chrome.storage.sync.get(["autoForward"], (result) => {
-          if (result.autoForward) { //Autoforward on
-            const btn = document.querySelector('button[type="submit"].btn.btn-primary');
-            btn?.closest("form")?.requestSubmit(btn);
-          }
-        });
+          chrome.storage.sync.get(["autoForward"], (result) => {
+            if (result.autoForward) { //Autoforward on
+              const btn = document.querySelector('button[type="submit"].btn.btn-primary');
+              btn?.closest("form")?.requestSubmit(btn);
+            }
+          });
+        }
       }
     });
   }
