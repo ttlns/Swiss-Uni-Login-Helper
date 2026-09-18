@@ -14,17 +14,30 @@
     }
   },
   "host_permissions": [
-    "https://moodle.bfh.ch/*",
-    "https://login.eduid.ch/*",
-    "https://ilias.unibe.ch/*",
-    "https://wayf.switch.ch/",
-    "https://moodle.fhgr.ch/"
+    "*://moodle.bfh.ch/*",
+    "*://login.eduid.ch/*",
+    "*://ilias.unibe.ch/*",
+    "*://wayf.switch.ch/",
+    "*://moodle.fhgr.ch/",
+    
+    "*://matomo.ethz.ch/*"
   ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
       "run_at": "document_idle",
+      "all_frames": true
+      
+    },
+    {
+      "css": [ "moodle_theme.css" ],
+      "matches": [ "*://moodle-app2.let.ethz.ch/*", "*://moodle-app6.let.ethz.ch/*", "*://ethz.ch/*" ]
+    },
+    {
+      "matches": ["*://matomo.ethz.ch/*"],
+      "js": ["content_matamo.js"],
+      "run_at": "document_start",
       "all_frames": true
     }
   ],
