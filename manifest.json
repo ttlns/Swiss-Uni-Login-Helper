@@ -19,6 +19,8 @@
     "*://ilias.unibe.ch/*",
     "*://wayf.switch.ch/",
     "*://moodle.fhgr.ch/",
+    "*://moodle-app2.let.ethz.ch/*",
+    "*://moodle-app6.let.ethz.ch/*",
     
     "*://matomo.ethz.ch/*"
   ],
@@ -29,7 +31,9 @@
         "*://login.eduid.ch/*",
         "*://ilias.unibe.ch/*",
         "*://wayf.switch.ch/",
-        "*://moodle.fhgr.ch/"
+        "*://moodle.fhgr.ch/",
+        "*://moodle-app2.let.ethz.ch/*",
+        "*://moodle-app6.let.ethz.ch/*"
       ],
       "js": ["content.js"],
       "run_at": "document_idle",
